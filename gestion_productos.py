@@ -23,7 +23,8 @@ def ver_productos():
     if not productos:
         print("No hay productos")
     else:
-        print(productos)
+        for i in productos:
+            print(f"Producto: {i['producto']}, Precio: {i['precio']}, Cantidad: {i['cantidad']}")
 
 def actualizar_producto():
     producto_nombre = input("Ingrese el nombre del producto a actualizar: ")
