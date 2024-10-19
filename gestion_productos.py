@@ -11,7 +11,7 @@ def añadir_producto():
             print("Ingrese un precio valido")
     while True:
         cantidad = input("Ingrese cantidad del producto: ")
-        if cantidad.isdigit() and int(cantidad) >0: 
+        if cantidad.isdigit() and int(cantidad) > 0: 
             cantidad = int(cantidad)
             break
         else:
@@ -30,8 +30,14 @@ def actualizar_producto():
     producto_nombre = input("Ingrese el nombre del producto a actualizar: ")
     for i in productos:
         if i['producto'].lower() == producto_nombre.lower():
-          opc = int(input("Seleccione la opción que desea actualizar: (1) Precio del producto, (2) Cantidad: "))
+          opc = int(input("Seleccione la opción que desea actualizar: (1) Nombre del producto, (2) Precio, (3) Cantidad: "))
           if opc == 1:
+                  nombre_actualizar = input("Ingrese el nuevo nombre del producto: ")
+                  i['producto'] = nombre_actualizar
+                  print("Nombre actualizado correctamente")
+                  return
+
+          elif opc == 2:
               while True:
                   precio_actualizar = input("Ingrese el nuevo precio: ")
                   if precio_actualizar.isdigit() and float(precio_actualizar) >0:
@@ -40,7 +46,7 @@ def actualizar_producto():
                       return
                   else:
                       print("Ingrese un precio valido")
-          elif opc == 2:
+          elif opc == 3:
               while True:
                   cantidad_actualizar = input("Ingrese la nueva cantidad: ")
                   if cantidad_actualizar.isdigit() and int(cantidad_actualizar) >0:
